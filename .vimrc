@@ -105,7 +105,6 @@ set cursorline " Highlight current line
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
 colorscheme dracula " Color scheme
-set termguicolors
 
 "" Tabs
 set tabstop=2
