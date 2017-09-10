@@ -1,0 +1,42 @@
+[user]
+	email = archielee@appier.com
+	name = Archie Lee
+	signingkey = 7D51A5311C34A81D
+[core]
+	editor = vim
+[alias]
+	dsf = "!git diff --color $@ | diff-so-fancy"
+[pus]
+	default = simple
+[push]
+	default = simple
+[difftool]
+	prompt = false
+	bc3 = trustExitCode
+[mergetool "araxis"]
+	path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+[diff]
+	tool = araxis
+[merge]
+	tool = araxis
+[mergetool]
+	bc3 = trustExitCode
+	bc3 = trustExitCode
+[deff]
+	tool = araxis
+[branch]
+	autosetuprebase = always
