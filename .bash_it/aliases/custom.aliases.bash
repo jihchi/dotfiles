@@ -1,4 +1,4 @@
-alias dl="aria2c --max-concurrent-downloads=10 --continue=true --max-connection-per-server=10 --min-split-size=20M --split=10"
+alias dl="aria2c --max-concurrent-downloads=50 --continue=true --max-connection-per-server=16 --min-split-size=10M --split=50"
 # npm-quick-run
 function __nr() {
   executor="`npm bin -g`/nr"
