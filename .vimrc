@@ -181,6 +181,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Prettier
 nmap <leader>p <Plug>(Prettier)
+let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'es5'
 
 " Operations such as yy, D, and P work with the system clipboard
