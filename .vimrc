@@ -47,6 +47,8 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 " commentary.vim: comment stuff out
 Plug 'tpope/vim-commentary'
+" Asynchronous Lint Engine
+Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -181,6 +183,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Prettier
 nmap <leader>p <Plug>(Prettier)
+let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'es5'
 
@@ -194,3 +197,8 @@ let g:jsx_ext_required = 0
 " Automatically change the current directory
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 autocmd BufEnter * silent! lcd %:p:h
+
+" Ale
+let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
