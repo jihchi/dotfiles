@@ -23,6 +23,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'airblade/vim-gitgutter'
+" fugitive.vim: a Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
 " JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation.
@@ -49,6 +51,8 @@ Plug 'prettier/vim-prettier', {
 Plug 'tpope/vim-commentary'
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
+" A Vim plugin for visually displaying indent levels in code
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -202,3 +206,6 @@ autocmd BufEnter * silent! lcd %:p:h
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+" indtent guides
+let g:indent_guides_enable_on_vim_startup = 1
