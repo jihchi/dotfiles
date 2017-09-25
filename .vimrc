@@ -57,7 +57,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 "" Leader key
-let mapleader = '\'
+let mapleader = ',' " leader is comma
+" open ag.vim
+nnoremap <leader>a :Ag
 
 "" Text Wrapping
 set textwidth=79
@@ -81,6 +83,22 @@ set incsearch
 set ignorecase
 set smartcase
 nnoremap <leader><space> :nohls <enter>
+
+"" Folding
+set foldenable " Enable folding
+set foldlevelstart=10 " Open most folds by default
+set foldnestmax=10 " 10 nested fold max
+set foldmethod=indent " Fold based on indent level
+" space open/closes folds
+nnoremap <space> za
+
+"" Movement
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" highlight last inserted text
+nnoremap gV `[v`]
 
 "" The Silver Searcher
 if executable('ag')
@@ -106,11 +124,15 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
+"" UI Config
 syntax enable " Syntax highlight
 set cursorline " Highlight current line
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
 colorscheme dracula " Color scheme
+filetype indent on " Load filetype-specific indent files
+set wildmenu " Visual autocomplete for command menu
+set showmatch " Highlight matching [{()}]
 
 "" Tabs
 set tabstop=2
@@ -183,7 +205,10 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 " ctrlp
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Prettier
 nmap <leader>p <Plug>(Prettier)
