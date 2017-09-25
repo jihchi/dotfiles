@@ -51,8 +51,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'tpope/vim-commentary'
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
-" A Vim plugin for visually displaying indent levels in code
-Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
@@ -231,5 +229,3 @@ let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 
-" indtent guides
-let g:indent_guides_enable_on_vim_startup = 1
