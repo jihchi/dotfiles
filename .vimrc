@@ -35,6 +35,8 @@ Plug 'mxw/vim-jsx'
 Plug 'lifepillar/vim-mucomplete'
 " UltiSnips is the ultimate solution for snippets in Vim.
 Plug 'SirVer/ultisnips'
+" This repository contains snippets files for various programming languages.
+Plug 'honza/vim-snippets'
 " Dracula theme
 Plug 'dracula/vim'
 " Nerdtree
@@ -55,7 +57,7 @@ Plug 'w0rp/ale'
 call plug#end()
 
 "" Leader key
-let mapleader = ',' " leader is comma
+let mapleader = '\'
 " open ag.vim
 nnoremap <leader>a :Ag
 
@@ -219,10 +221,6 @@ set clipboard=unnamed
 
 " vim-jsx
 let g:jsx_ext_required = 0
-
-" Automatically change the current directory
-" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-autocmd BufEnter * silent! lcd %:p:h
 
 " Ale
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
