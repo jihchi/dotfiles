@@ -182,6 +182,11 @@ nnoremap <leader><leader>q :bdelete<CR>
 "" NERDTree
 map <leader>f :NERDTreeToggle<CR>
 nmap <leader>r :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
 " How can I close vim if the only window left open is a NERDTree?
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDTress File highlighting
