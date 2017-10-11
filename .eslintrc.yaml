@@ -1,0 +1,14 @@
+parser: babel-eslint
+extends:
+- prettier
+- prettier/react
+plugins:
+- prettier
+parserOptions:
+  sourceType: module
+  ecmaFeatures:
+    jsx: true
+env:
+  browser: true
+  node: true
+  es6: true # this automatically sets the ecmaVersion parser option to 6

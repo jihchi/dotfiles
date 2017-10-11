@@ -53,6 +53,10 @@ Plug 'prettier/vim-prettier', {
 Plug 'tpope/vim-commentary'
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
+" 📐 Simple indentation guides for your buffers
+Plug 'thaerkh/vim-indentguides'
+" 📑 Automated Vim session management and file auto-save
+Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
@@ -241,3 +245,5 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+" vim-workspace
+nnoremap <leader>s :ToggleWorkspace<CR>
