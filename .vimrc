@@ -247,3 +247,6 @@ autocmd FileChangedShellPost *
 
 " vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
+
+" vim-indentguides
+let g:indentguides_ignorelist = ['text', 'json']
