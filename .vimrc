@@ -69,6 +69,7 @@ nnoremap <leader>a :Ag
 set textwidth=79
 set colorcolumn=80
 set nowrap
+set sidescroll=1
 
 "" Encoding
 set encoding=utf-8
