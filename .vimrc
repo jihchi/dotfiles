@@ -58,7 +58,7 @@ Plug 'thaerkh/vim-indentguides'
 " 📑 Automated Vim session management and file auto-save
 Plug 'thaerkh/vim-workspace'
 " vim plugin which formated javascript files by js-beautify
-Plug 'vim-jsbeautify'
+Plug 'maksimr/vim-jsbeautify'
 
 call plug#end()
 
