@@ -103,6 +103,7 @@ nnoremap <space> za
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+set showcmd
 
 " highlight last inserted text
 nnoremap gV `[v`]
@@ -253,3 +254,13 @@ nnoremap <leader>s :ToggleWorkspace<CR>
 
 " vim-indentguides
 let g:indentguides_ignorelist = ['text', 'json']
+
+" vim-jsbeautify
+autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+let g:config_Beautifier = {
+  \ 'html': {
+  \   'indent_style': 'space',
+  \   'indent_size': '2'
+  \ }
+\}
