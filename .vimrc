@@ -59,6 +59,8 @@ Plug 'thaerkh/vim-indentguides'
 Plug 'thaerkh/vim-workspace'
 " vim plugin which formated javascript files by js-beautify
 Plug 'maksimr/vim-jsbeautify'
+" Useful vim commands to close buffers 📖
+Plug 'Asheq/close-buffers.vim'
 
 call plug#end()
 
@@ -185,7 +187,7 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 nnoremap <leader><leader><space> :Buffers<CR>
 nnoremap <leader><leader><tab> :bnext<CR>
-nnoremap <leader><leader>q :bdelete<CR>
+nnoremap <leader><leader>q :CloseThisBuffer<CR>
 
 "" NERDTree
 map <leader>f :NERDTreeToggle<CR>
