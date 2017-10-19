@@ -108,7 +108,7 @@ nnoremap gV `[v`]
 
 " fzf
 nmap ; :Buffers<CR>
-nmap <leader>t :Files<CR>
+nmap <C-p> :Files<CR>
 nmap <leader>a :Ag<CR>
 
 "" The Silver Searcher
