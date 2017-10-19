@@ -64,8 +64,6 @@ call plug#end()
 
 "" Leader key
 let mapleader = '\'
-" open ag.vim
-nnoremap <leader>a :Ag
 
 "" Text Wrapping
 set textwidth=79
@@ -107,6 +105,11 @@ set showcmd
 
 " highlight last inserted text
 nnoremap gV `[v`]
+
+" fzf
+nmap ; :Buffers<CR>
+nmap <leader>t :Files<CR>
+nmap <leader>a :Ag<CR>
 
 "" The Silver Searcher
 if executable('ag')
@@ -188,7 +191,7 @@ nnoremap <leader><leader><tab> :bnext<CR>
 nnoremap <leader><leader>q :CloseThisBuffer<CR>
 
 "" NERDTree
-map <leader>f :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 nmap <leader>r :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 " enable line numbers
@@ -230,9 +233,11 @@ set clipboard=unnamed
 let g:jsx_ext_required = 0
 
 " Ale
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
 
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
@@ -258,3 +263,10 @@ let g:config_Beautifier = {
   \   'indent_size': '2'
   \ }
 \}
+
+" Super fast window movement shortcuts
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
+
