@@ -43,8 +43,6 @@ Plug 'dracula/vim'
 Plug 'scrooloose/nerdtree'
 " A plugin of NERDTree showing git status flags.
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plug 'ctrlpvim/ctrlp.vim'
 " A vim plugin wrapper for prettier
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -218,12 +216,6 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
-" ctrlp
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 " Prettier
 let g:prettier#exec_cmd_async = 1
