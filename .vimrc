@@ -107,8 +107,8 @@ set showcmd
 nnoremap gV `[v`]
 
 " fzf
-nmap ; :Buffers<CR>
 nmap <C-p> :Files<CR>
+nmap <leader>b :Buffers<CR>
 nmap <leader>a :Ag<CR>
 
 "" The Silver Searcher
