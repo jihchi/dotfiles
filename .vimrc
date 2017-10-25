@@ -270,3 +270,5 @@ nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
 
+" Search for visually selected text
+vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
