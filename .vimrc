@@ -59,6 +59,8 @@ Plug 'thaerkh/vim-workspace'
 Plug 'maksimr/vim-jsbeautify'
 " Useful vim commands to close buffers 📖
 Plug 'Asheq/close-buffers.vim'
+" incremental search improved - successor of incsearch.vim
+Plug 'haya14busa/is.vim'
 
 call plug#end()
 
