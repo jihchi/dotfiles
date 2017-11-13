@@ -61,7 +61,10 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'Asheq/close-buffers.vim'
 " incremental search improved - successor of incsearch.vim
 Plug 'haya14busa/is.vim'
-
+" Vim plugin that displays tags in a window, ordered by scope
+Plug 'majutsushi/tagbar'
+" Tern plugin for Vim
+Plug 'ternjs/tern_for_vim'
 call plug#end()
 
 "" Leader key
