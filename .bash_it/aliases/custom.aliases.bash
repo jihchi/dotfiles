@@ -38,6 +38,6 @@ alias gcom="git checkout master"
 alias gcop="git checkout develop"
 
 # silver searcher
-alias ff="ag --literal --hidden --ignore-case --filename-pattern"
-alias search="ag --literal --hidden --ignore-case"
+alias search="ag --literal --hidden"
+alias ff="search --filename-pattern"
 
