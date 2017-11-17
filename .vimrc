@@ -65,6 +65,9 @@ Plug 'haya14busa/is.vim'
 Plug 'majutsushi/tagbar'
 " Tern plugin for Vim
 Plug 'ternjs/tern_for_vim'
+" indent yaml
+Plug 'avakhov/vim-yaml'
+
 call plug#end()
 
 "" Leader key
