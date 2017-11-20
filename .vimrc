@@ -276,3 +276,6 @@ nmap <C-l> <C-W>l
 
 " Search for visually selected text
 vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
