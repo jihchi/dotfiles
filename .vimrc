@@ -233,10 +233,6 @@ let g:prettier#exec_cmd_async = 1
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'es5'
 
-" Operations such as yy, D, and P work with the system clipboard
-se mouse+=a
-set clipboard=unnamed
-
 " vim-jsx
 let g:jsx_ext_required = 0
 
