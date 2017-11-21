@@ -14,8 +14,7 @@ Plug 'tpope/vim-sensible'
 " brew install the_silver_searcher
 " brew install fzf
 " https://github.com/junegunn/fzf#respecting-gitignore-hgignore-and-svnignore
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-" Things you can do with fzf and Vim.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Lean & mean status/tabline for vim that's light as air.
 Plug 'vim-airline/vim-airline'
