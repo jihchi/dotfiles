@@ -258,6 +258,7 @@ call add(g:mucomplete#chains['default'], 'ulti')
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 nnoremap <leader><leader><tab> :bnext<CR>
 nnoremap <leader><leader>q :CloseThisBuffer<CR>
 
