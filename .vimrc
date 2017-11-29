@@ -28,6 +28,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'ntpeters/vim-better-whitespace'
 " JavaScript bundle for vim, this bundle provides syntax highlighting and improved indentation.
 Plug 'pangloss/vim-javascript'
+" 🔦 [Vim script] React JSX syntax pretty highlighting for vim.
+Plug 'maxmellon/vim-jsx-pretty'
 " React JSX syntax highlighting and indenting for vim.
 Plug 'mxw/vim-jsx'
 " Chained completion that works the way you want!
