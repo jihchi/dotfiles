@@ -66,6 +66,14 @@ Plug 'majutsushi/tagbar'
 Plug 'ternjs/tern_for_vim'
 " indent yaml
 Plug 'avakhov/vim-yaml'
+" Vim support for Reason/OCaml
+Plug 'reasonml-editor/vim-reason-plus'
+" Language Server Protocol support for neovim and vim.
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" This is an experimental project, trying to build a compatibility layer for neovim rpc client working on vim8
+Plug 'roxma/vim-hug-neovim-rpc'
+" Yet Another Remote Plugin Framework for Neovim
+Plug 'roxma/nvim-yarp'
 
 call plug#end()
 
@@ -362,3 +370,13 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 " It's useful to show the buffer number in the status line.
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+" Reason / OCaml
+let g:LanguageClient_serverCommands = {
+    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ }
+
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
+nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
