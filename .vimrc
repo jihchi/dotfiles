@@ -69,7 +69,7 @@ Plug 'avakhov/vim-yaml'
 " Vim support for Reason/OCaml
 Plug 'reasonml-editor/vim-reason-plus'
 " Language Server Protocol support for neovim and vim.
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim'
 " This is an experimental project, trying to build a compatibility layer for neovim rpc client working on vim8
 Plug 'roxma/vim-hug-neovim-rpc'
 " Yet Another Remote Plugin Framework for Neovim
@@ -372,6 +372,7 @@ nnoremap <Leader>0 :10b<CR>
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " Reason / OCaml
+let g:LanguageClient_autoStart = 0
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['ocaml-language-server', '--stdio'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
@@ -380,3 +381,4 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
 nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
 nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
+
