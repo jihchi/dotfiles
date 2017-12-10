@@ -378,7 +378,11 @@ let g:LanguageClient_serverCommands = {
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ }
 
+" roxma/vim-hug-neovim-rpc & roxma/nvim-yarp
+let g:python3_host_prog="/usr/local/opt/python3/Frameworks/Python.framework/Versions/3.6/bin/python3"
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
 nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
 nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
-
+" For debugging used
+"let $NVIM_PYTHON_LOG_FILE="nvim_log"
+"let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
