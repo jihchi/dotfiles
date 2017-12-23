@@ -1,3 +1,6 @@
+alias curl_json="curl -H'Content-Type: application/json'"
+alias curl_form="curl -H'Content-Type: application/x-www-form-urlencoded'"
+alias curl_data="curl -H'Content-Type: multipart/form-data'"
 alias dl="aria2c --max-concurrent-downloads=50 --continue=true --max-connection-per-server=16 --min-split-size=10M --split=50"
 
 # npm-quick-run
