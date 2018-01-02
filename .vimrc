@@ -74,6 +74,8 @@ Plug 'autozimu/LanguageClient-neovim'
 Plug 'roxma/vim-hug-neovim-rpc'
 " Yet Another Remote Plugin Framework for Neovim
 Plug 'roxma/nvim-yarp'
+" rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
@@ -386,3 +388,5 @@ nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
 " For debugging used
 "let $NVIM_PYTHON_LOG_FILE="nvim_log"
 "let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
+
+let g:rainbow_active = 1
