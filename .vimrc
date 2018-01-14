@@ -3,7 +3,7 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -69,7 +69,10 @@ Plug 'avakhov/vim-yaml'
 " Vim support for Reason/OCaml
 Plug 'reasonml-editor/vim-reason-plus'
 " Language Server Protocol support for neovim and vim.
-Plug 'autozimu/LanguageClient-neovim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 " This is an experimental project, trying to build a compatibility layer for neovim rpc client working on vim8
 Plug 'roxma/vim-hug-neovim-rpc'
 " Yet Another Remote Plugin Framework for Neovim
