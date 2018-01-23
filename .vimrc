@@ -264,9 +264,6 @@ set completeopt=menuone,noinsert,noselect
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completionc
 let g:mucomplete#enable_auto_at_startup = 1
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
 call add(g:mucomplete#chains['default'], 'ulti')
 
 "" Airline Powerline
