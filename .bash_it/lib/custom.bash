@@ -63,3 +63,6 @@ complete -F _yargs_completions nps
 
 # byobu
 export BYOBU_PREFIX=/usr/local
+
+# OPAM configuration
+. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
