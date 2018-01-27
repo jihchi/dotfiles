@@ -256,8 +256,7 @@ augroup BWCCreateDir
 augroup END
 
 "" Vim Better Whitespace Plugin
-" strip all trailing whitespace everytime you save the file for all file types
-autocmd BufEnter * EnableStripWhitespaceOnSave
+nmap <leader><leader>w :StripWhitespace<CR>
 
 "" mucomplete
 set completeopt=menuone,noinsert,noselect
