@@ -61,8 +61,5 @@ _yargs_completions()
 complete -F _yargs_completions nps
 ###-end-nps-completions-###
 
-# byobu
-export BYOBU_PREFIX=/usr/local
-
 # OPAM configuration
 . ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
