@@ -230,6 +230,10 @@ colorscheme dracula " Color scheme
 filetype indent on " Load filetype-specific indent files
 set wildmenu " Visual autocomplete for command menu
 set showmatch " Highlight matching [{()}]
+set history=1000 " Store a ton of history (default is 20)
+set spell " Spell checking on
+set nowrap " Do not wrap long lines
+set autoindent " Indent at the same level of the previous line
 
 "" Tabs
 set tabstop=2
@@ -237,6 +241,10 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set backspace=2
+
+" Instead of reverting the cursor to the last position in the buffer, we
+" set it to the first line when editing a git commit message
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 set rtp+=/usr/local/bin/fzf " fzf
 
