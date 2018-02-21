@@ -231,7 +231,6 @@ filetype indent on " Load filetype-specific indent files
 set wildmenu " Visual autocomplete for command menu
 set showmatch " Highlight matching [{()}]
 set history=1000 " Store a ton of history (default is 20)
-set spell " Spell checking on
 set nowrap " Do not wrap long lines
 set autoindent " Indent at the same level of the previous line
 
