@@ -52,8 +52,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'tpope/vim-commentary'
 " Asynchronous Lint Engine
 Plug 'w0rp/ale'
-" 📐 Simple indentation guides for your buffers
-Plug 'thaerkh/vim-indentguides'
 " 📑 Automated Vim session management and file auto-save
 Plug 'thaerkh/vim-workspace'
 " vim plugin which formated javascript files by js-beautify
@@ -329,9 +327,6 @@ autocmd FileChangedShellPost *
 
 " vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
-
-" vim-indentguides
-let g:indentguides_ignorelist = ['text', 'json']
 
 " vim-jsbeautify
 autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
