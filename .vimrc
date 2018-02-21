@@ -77,6 +77,8 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'roxma/nvim-yarp'
 " rainbow parentheses improved, shorter code, no level limit, smooth and fast, powerful configuration.
 Plug 'luochen1990/rainbow'
+" True Sublime Text style multiple selections for Vim
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
