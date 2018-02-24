@@ -363,6 +363,8 @@ nnoremap <leader>bn :bnext<CR>
 nnoremap <leader>bp :bprevious<CR>
 " close this buffer
 nnoremap <leader>bc :CloseThisBuffer<CR>
+" go last-used
+nnoremap <leader><leader><tab> :e#<CR>
 
 " http://vim.wikia.com/wiki/Easier_buffer_switching
 " Mappings to access buffers (don't use "\p" because a
