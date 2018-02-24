@@ -276,8 +276,7 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-nnoremap <leader><leader><tab> :bnext<CR>
-nnoremap <leader><leader>q :CloseThisBuffer<CR>
+
 
 "" NERDTree
 nmap <leader>e :NERDTreeToggle<CR>
@@ -357,6 +356,13 @@ vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+" go next
+nnoremap <leader>bn :bnext<CR>
+" go previous
+nnoremap <leader>bp :bprevious<CR>
+" close this buffer
+nnoremap <leader>bc :CloseThisBuffer<CR>
 
 " http://vim.wikia.com/wiki/Easier_buffer_switching
 " Mappings to access buffers (don't use "\p" because a
