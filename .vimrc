@@ -54,8 +54,6 @@ Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 " 📑 Automated Vim session management and file auto-save
 Plug 'thaerkh/vim-workspace'
-" vim plugin which formated javascript files by js-beautify
-Plug 'maksimr/vim-jsbeautify'
 " Useful vim commands to close buffers 📖
 Plug 'Asheq/close-buffers.vim'
 " Vim plugin that displays tags in a window, ordered by scope
@@ -93,8 +91,6 @@ set formatoptions+=t
 
 "" Encoding
 set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
 set bomb
 set binary
 set ttyfast
@@ -114,17 +110,12 @@ set foldenable " Enable folding
 set foldlevelstart=10 " Open most folds by default
 set foldnestmax=10 " 10 nested fold max
 set foldmethod=indent " Fold based on indent level
-" space open/closes folds
-nnoremap <space> za
 
 "" Movement
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
 set showcmd
-
-" highlight last inserted text
-nnoremap gV `[v`]
 
 " ============================================================================
 " FZF {{{
@@ -159,16 +150,10 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
-nnoremap <silent> <Leader>C :Colors<CR>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
-nnoremap <silent> <Leader>l :Lines<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
-nnoremap <silent> <Leader>` :Marks<CR>
-" nnoremap <silent> q: :History:<CR>
-" nnoremap <silent> q/ :History/<CR>
 
 inoremap <expr> <c-x><c-t> fzf#complete('tmuxwords.rb --all-but-current --scroll 500 --min 5')
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -222,7 +207,6 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
-"" UI Config
 syntax enable " Syntax highlight
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
@@ -233,8 +217,6 @@ set showmatch " Highlight matching [{()}]
 set history=1000 " Store a ton of history (default is 20)
 set nowrap " Do not wrap long lines
 set autoindent " Indent at the same level of the previous line
-
-"" Tabs
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -247,29 +229,16 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 set rtp+=/usr/local/bin/fzf " fzf
 
-"" Vim: Creating parent directories on save
-function s:MkNonExDir(file, buf)
-  if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-    let dir=fnamemodify(a:file, ':h')
-    if !isdirectory(dir)
-      call mkdir(dir, 'p')
-    endif
-  endif
-endfunction
-augroup BWCCreateDir
-  autocmd!
-  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-augroup END
-
 "" Vim Better Whitespace Plugin
 nmap <leader><leader>w :StripWhitespace<CR>
 
 "" mucomplete
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c   " Shut off completion messages
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+set shortmess+=c " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completionc
 let g:mucomplete#enable_auto_at_startup = 1
-call add(g:mucomplete#chains['default'], 'ulti')
 
 "" Airline Powerline
 let g:airline_powerline_fonts = 1
@@ -286,8 +255,6 @@ let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
-" How can I close vim if the only window left open is a NERDTree?
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
@@ -334,16 +301,6 @@ autocmd FileChangedShellPost *
 
 " vim-workspace
 nnoremap <leader>s :ToggleWorkspace<CR>
-
-" vim-jsbeautify
-autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-let g:config_Beautifier = {
-  \ 'html': {
-  \   'indent_style': 'space',
-  \   'indent_size': '2'
-  \ }
-\}
 
 " Super fast window movement shortcuts
 nmap <C-j> <C-W>j
