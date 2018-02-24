@@ -319,7 +319,7 @@ nnoremap <leader>] :bnext<CR>
 " go previous
 nnoremap <leader>[ :bprevious<CR>
 " close this buffer
-nnoremap <leader>w :CloseThisBuffer<CR>
+nnoremap <leader><leader>q :CloseThisBuffer<CR>
 " go last-used
 nnoremap <leader><leader><tab> :e#<CR>
 
