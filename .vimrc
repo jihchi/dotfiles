@@ -351,8 +351,5 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
 nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
 nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
-" For debugging used
-"let $NVIM_PYTHON_LOG_FILE="nvim_log"
-"let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 
 let g:rainbow_active = 1
