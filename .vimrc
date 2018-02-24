@@ -315,11 +315,11 @@ vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 cmap w!! w !sudo tee > /dev/null %
 
 " go next
-nnoremap <leader>bn :bnext<CR>
+nnoremap <leader>] :bnext<CR>
 " go previous
-nnoremap <leader>bp :bprevious<CR>
+nnoremap <leader>[ :bprevious<CR>
 " close this buffer
-nnoremap <leader>bc :CloseThisBuffer<CR>
+nnoremap <leader>w :CloseThisBuffer<CR>
 " go last-used
 nnoremap <leader><leader><tab> :e#<CR>
 
