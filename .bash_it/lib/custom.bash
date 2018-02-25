@@ -61,16 +61,12 @@ _yargs_completions()
 complete -F _yargs_completions nps
 ###-end-nps-completions-###
 
-# OPAM configuration
-. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-# pyenv
 # brew install pyenv
-# brew install pyenv-virtualenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# brew install pyenv-virtualenv
 if which pyenv-virtualenv-init > /dev/null; then
   eval "$(pyenv virtualenv-init -)";
 fi
