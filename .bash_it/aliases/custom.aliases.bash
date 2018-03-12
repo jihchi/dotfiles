@@ -19,9 +19,6 @@ alias nr="__nr"
 # general
 alias cdc="cd ~ && clear"
 
-# svgo
-alias svgo="svgo --config=$HOME/.svgo.yaml"
-
 # Sublime Text
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
