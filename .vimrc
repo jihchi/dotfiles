@@ -32,12 +32,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 " React JSX syntax highlighting and indenting for vim.
 Plug 'mxw/vim-jsx'
-" Chained completion that works the way you want!
-Plug 'lifepillar/vim-mucomplete'
-" UltiSnips is the ultimate solution for snippets in Vim.
-Plug 'SirVer/ultisnips'
-" This repository contains snippets files for various programming languages.
-Plug 'honza/vim-snippets'
 " Dracula theme
 Plug 'dracula/vim'
 " Nerdtree
@@ -50,16 +44,8 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 " commentary.vim: comment stuff out
 Plug 'tpope/vim-commentary'
-" Asynchronous Lint Engine
-Plug 'w0rp/ale'
-" 📑 Automated Vim session management and file auto-save
-Plug 'thaerkh/vim-workspace'
 " Useful vim commands to close buffers 📖
 Plug 'Asheq/close-buffers.vim'
-" Vim plugin that displays tags in a window, ordered by scope
-Plug 'majutsushi/tagbar'
-" Tern plugin for Vim
-Plug 'ternjs/tern_for_vim'
 " indent yaml
 Plug 'avakhov/vim-yaml'
 " Vim support for Reason/OCaml
@@ -111,20 +97,12 @@ set foldlevelstart=10 " Open most folds by default
 set foldnestmax=10 " 10 nested fold max
 set foldmethod=indent " Fold based on indent level
 
-"" Movement
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
 set showcmd
 
 " ============================================================================
 " FZF {{{
 " https://github.com/junegunn/dotfiles/blob/master/vimrc
 " ============================================================================
-
-if has('nvim') || has('gui_running')
-  let $FZF_DEFAULT_OPTS .= ' --inline-info'
-endif
 
 " Hide statusline of terminal buffer
 autocmd! FileType fzf
@@ -155,58 +133,6 @@ nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
 
-inoremap <expr> <c-x><c-t> fzf#complete('tmuxwords.rb --all-but-current --scroll 500 --min 5')
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-inoremap <expr> <c-x><c-d> fzf#vim#complete#path('blsd')
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
-function! s:plug_help_sink(line)
-  let dir = g:plugs[a:line].dir
-  for pat in ['doc/*.txt', 'README.md']
-    let match = get(split(globpath(dir, pat), "\n"), 0, '')
-    if len(match)
-      execute 'tabedit' match
-      return
-    endif
-  endfor
-  tabnew
-  execute 'Explore' dir
-endfunction
-
-command! PlugHelp call fzf#run(fzf#wrap({
-  \ 'source': sort(keys(g:plugs)),
-  \ 'sink':   function('s:plug_help_sink')}))
-
-"" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
-
-" Save temporary/backup files not in the local directory, but in your ~/.vim
-" directory, to keep them out of git repos.
-" But first mkdir backup, swap, and undo first to make this work
-call system('mkdir ~/.vim')
-call system('mkdir ~/.vim/backup')
-call system('mkdir ~/.vim/swap')
-set backupdir=~/.vim/backup/
-set directory=~/.vim/swap/
-
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    call system('mkdir ~/.vim/undo')
-    set undodir=~/.vim/undo//
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
-endif
-
 syntax enable " Syntax highlight
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
@@ -223,29 +149,16 @@ set softtabstop=2
 set expandtab
 set backspace=2
 
-" Instead of reverting the cursor to the last position in the buffer, we
-" set it to the first line when editing a git commit message
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
-
 set rtp+=/usr/local/bin/fzf " fzf
 
 "" Vim Better Whitespace Plugin
 nmap <leader><leader>w :StripWhitespace<CR>
-
-"" mucomplete
-set completeopt+=menuone
-set completeopt+=noselect
-set completeopt+=noinsert
-set shortmess+=c " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completionc
-let g:mucomplete#enable_auto_at_startup = 1
 
 "" Airline Powerline
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-
 
 "" NERDTree
 nmap <leader>e :NERDTreeToggle<CR>
@@ -283,13 +196,6 @@ let g:prettier#config#trailing_comma = 'es5'
 " vim-jsx
 let g:jsx_ext_required = 0
 
-" Ale
-let g:ale_sign_warning = '▲'
-let g:ale_sign_error = '✗'
-let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
-highlight link ALEWarningSign String
-highlight link ALEErrorSign Title
-
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
@@ -298,9 +204,6 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-" vim-workspace
-nnoremap <leader>s :ToggleWorkspace<CR>
 
 " Super fast window movement shortcuts
 nmap <C-j> <C-W>j
@@ -339,8 +242,6 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
-" It's useful to show the buffer number in the status line.
-set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " Reason / OCaml
 let g:LanguageClient_autoStart = 1
