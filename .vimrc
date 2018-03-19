@@ -65,6 +65,8 @@ Plug 'luochen1990/rainbow'
 Plug 'terryma/vim-multiple-cursors'
 " Plugin to move lines and selections up and down
 Plug 'matze/vim-move'
+" Chained completion that works the way you want!
+Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
 
@@ -265,3 +267,13 @@ let g:rainbow_active = 1
 " <C-k>   Move current line/selections up
 " <C-j>   Move current line/selections down
 let g:move_key_modifier = 'C'
+
+" MUcomplete
+" Mandatory
+set completeopt+=menuone
+" choose the combination that best fits your taste
+set completeopt+=noselect
+"set completeopt+=noinsert
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
