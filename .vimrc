@@ -63,6 +63,8 @@ Plug 'roxma/nvim-yarp'
 Plug 'luochen1990/rainbow'
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
+" Plugin to move lines and selections up and down
+Plug 'matze/vim-move'
 
 call plug#end()
 
@@ -258,3 +260,8 @@ nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
 nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
 
 let g:rainbow_active = 1
+
+" 'matze/vim-move'
+" <C-k>   Move current line/selections up
+" <C-j>   Move current line/selections down
+let g:move_key_modifier = 'C'
