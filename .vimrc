@@ -67,8 +67,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 " Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
-" Asynchronous Lint Engine
-Plug 'w0rp/ale'
 
 call plug#end()
 
@@ -274,8 +272,8 @@ let g:move_key_modifier = 'C'
 " Mandatory
 set completeopt+=menuone
 " choose the combination that best fits your taste
-set completeopt+=noselect
-"set completeopt+=noinsert
+" set completeopt+=noselect
+set completeopt+=noinsert
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
