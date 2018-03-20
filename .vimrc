@@ -67,6 +67,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 " Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
+" Asynchronous Lint Engine
+Plug 'w0rp/ale'
 
 call plug#end()
 
