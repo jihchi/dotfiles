@@ -1,8 +1,6 @@
 # Homebrew
 export PATH="/usr/local/sbin:$PATH"
 
-# GVM
-[[ -s "/archie/.gvm/scripts/gvm" ]] && source "/archie/.gvm/scripts/gvm"
 
 # locale
 export LC_ALL=en_US.UTF-8
@@ -70,4 +68,7 @@ fi
 if which pyenv-virtualenv-init > /dev/null; then
   eval "$(pyenv virtualenv-init -)";
 fi
+
+# Go Version Manager
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
