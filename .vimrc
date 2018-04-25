@@ -147,10 +147,11 @@ set showmatch " Highlight matching [{()}]
 set history=1000 " Store a ton of history (default is 20)
 set nowrap " Do not wrap long lines
 set autoindent " Indent at the same level of the previous line
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=8 " For tab characters that appear 4-spaces-wide
+set shiftwidth=4
+set softtabstop=0
 set expandtab
+set smarttab
 set backspace=2
 
 set rtp+=/usr/local/bin/fzf " fzf
