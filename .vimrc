@@ -32,8 +32,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 " React JSX syntax highlighting and indenting for vim.
 Plug 'mxw/vim-jsx'
-" Adaptation of one-light and one-dark colorschemes for Vim
-Plug 'rakr/vim-one'
+" Dracula Theme
+Plug 'dracula/vim', { 'as': 'dracula' }
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 " A plugin of NERDTree showing git status flags.
@@ -138,6 +138,7 @@ nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
 
 syntax enable " Syntax highlight
+color dracula " Dracula theme
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
 filetype indent on " Load filetype-specific indent files
@@ -292,26 +293,3 @@ if has('persistent_undo')
     set undolevels=1000
     set undoreload=10000
 endif
-
-"Credit joshdick
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-
-colorscheme one
-set background=dark " for the dark version
-let g:airline_theme='one'
-
-set paste
