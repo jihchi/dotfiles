@@ -137,12 +137,17 @@ nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
 
-syntax enable " Syntax highlight
+syntax on " Syntax highlight
+set background=dark " Dark background
+set t_Co=256 " 256 colors, please
+set t_ut= " Fix bg color inside tmux sessions
 color dracula " Dracula theme
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
 filetype indent on " Load filetype-specific indent files
 set wildmenu " Visual autocomplete for command menu
+set wildmode=longest:full,full
+set wildignore=*.swp,*.bak,**/.git/*
 set showmatch " Highlight matching [{()}]
 set history=1000 " Store a ton of history (default is 20)
 set nowrap " Do not wrap long lines
@@ -153,6 +158,7 @@ set softtabstop=0
 set expandtab
 set smarttab
 set backspace=2
+
 
 set rtp+=/usr/local/bin/fzf " fzf
 
@@ -192,6 +198,20 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+" NERDTree Git setup
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "~",
+    \ "Untracked" : "⍨",
+    \ "Staged"    : "⍢",
+    \ "Renamed"   : "⎌",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "⍤",
+    \ "Dirty"     : "∙",
+    \ "Clean"     : "⎀",
+    \ "Unknown"   : "?"
+    \ }
+
 
 " Prettier
 let g:prettier#exec_cmd_async = 1
@@ -276,20 +296,15 @@ set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
 
-" Save temporary/backup files not in the local directory, but in your ~/.vim
-" directory, to keep them out of git repos.
-" But first mkdir backup, swap, and undo first to make this work
-call system('mkdir ~/.vim')
-call system('mkdir ~/.vim/backup')
-call system('mkdir ~/.vim/swap')
-set backupdir=~/.vim/backup/
-set directory=~/.vim/swap/
+set nobackup " Everything will be ok
+set nowritebackup
+set noswapfile
+set autoread " Autoread files
 
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    call system('mkdir ~/.vim/undo')
-    set undodir=~/.vim/undo//
-    set undofile
-    set undolevels=1000
-    set undoreload=10000
-endif
+set timeoutlen=500 " Be faster
+set ttimeoutlen=10
+
+set novisualbell " Turn noise off
+set noerrorbells
+set vb t_vb=
+
