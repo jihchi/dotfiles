@@ -32,8 +32,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 " React JSX syntax highlighting and indenting for vim.
 Plug 'mxw/vim-jsx'
-" Dracula Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Molokai color scheme for Vim
+Plug 'fatih/molokai'
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 " A plugin of NERDTree showing git status flags.
@@ -67,6 +67,8 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 " Chained completion that works the way you want!
 Plug 'lifepillar/vim-mucomplete'
+" Go development plugin for Vim
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -137,11 +139,39 @@ nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
 
+" vim-go
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+autocmd FileType go nmap ,b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap ,c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap ,r <Plug>(go-run)
+autocmd FileType go nmap ,i <Plug>(go-info)
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields =  1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_auto_type_info = 1
+set updatetime=250
+
 syntax on " Syntax highlight
-set background=dark " Dark background
 set t_Co=256 " 256 colors, please
 set t_ut= " Fix bg color inside tmux sessions
-color dracula " Dracula theme
+let g:molokai_original = 1
+let g:rehash256 = 1
+colorscheme molokai
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
 filetype indent on " Load filetype-specific indent files
@@ -235,9 +265,6 @@ nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-h> <C-W>h
 nmap <C-l> <C-W>l
-
-" Search for visually selected text
-vnoremap <expr> // 'y/\V'.escape(@",'\').'<CR>'
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
