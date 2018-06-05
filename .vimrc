@@ -69,6 +69,8 @@ Plug 'matze/vim-move'
 Plug 'lifepillar/vim-mucomplete'
 " Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Simple Vim configuration for Ponylang. 🐴 https://github.com/ponylang/ponyc
+Plug 'jakwings/vim-pony'
 
 call plug#end()
 
