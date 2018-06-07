@@ -273,9 +273,9 @@ nmap <C-l> <C-W>l
 cmap w!! w !sudo tee > /dev/null %
 
 " go next
-nnoremap <C-h> :bnext<CR>
+nnoremap <C-l> :bnext<CR>
 " go previous
-nnoremap <C-l> :bprevious<CR>
+nnoremap <C-h> :bprevious<CR>
 " close this buffer
 nnoremap <leader>q :CloseThisBuffer<CR>
 " close other buffer
