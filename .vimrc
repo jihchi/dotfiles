@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
 Plug 'airblade/vim-gitgutter'
-" fugitive.vim: a Git wrapper so awesome, it should be illegal
+" fugitive.vim: a Git wrapper so awesome, it should be i1llegal
 Plug 'tpope/vim-fugitive'
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
@@ -273,9 +273,9 @@ nmap <C-l> <C-W>l
 cmap w!! w !sudo tee > /dev/null %
 
 " go next
-nnoremap <C-]> :bnext<CR>
+nnoremap <C-h> :bnext<CR>
 " go previous
-nnoremap <C-[> :bprevious<CR>
+nnoremap <C-l> :bprevious<CR>
 " close this buffer
 nnoremap <leader>q :CloseThisBuffer<CR>
 " close other buffer
