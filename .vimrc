@@ -277,9 +277,9 @@ nnoremap <C-l> :bnext<CR>
 " go previous
 nnoremap <C-h> :bprevious<CR>
 " close this buffer
-nnoremap <C-q> :CloseThisBuffer<CR>
+nnoremap <leader>q :CloseThisBuffer<CR>
 " close other buffer
-nnoremap <C-Q> :CloseOtherBuffers<CR>
+nnoremap <leader>Q :CloseOtherBuffers<CR>
 
 " http://vim.wikia.com/wiki/Easier_buffer_switching
 " Mappings to access buffers (don't use "\p" because a
