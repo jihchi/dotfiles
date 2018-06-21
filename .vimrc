@@ -336,3 +336,5 @@ set novisualbell " Turn noise off
 set noerrorbells
 set vb t_vb=
 
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+set list
