@@ -73,8 +73,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jakwings/vim-pony'
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 Plug 'dyng/ctrlsf.vim'
-" Toggles between hybrid and absolute line numbers automatically
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
 
