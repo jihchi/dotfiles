@@ -73,6 +73,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jakwings/vim-pony'
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 Plug 'dyng/ctrlsf.vim'
+" This plugin for Vim enable an auto-close chars feature for you. For instance
+" if you type an '(', ``autoclose`` will automatically insert a ')' and put
+" the cursor between than. 
+Plug 'townk/vim-autoclose'
 
 call plug#end()
 
@@ -204,7 +208,7 @@ nmap <leader><leader>w :StripWhitespace<CR>
 let g:airline_powerline_fonts = 1
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_show = 0
 
 "" NERDTree
 nmap <leader>e :NERDTreeToggle<CR>
