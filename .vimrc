@@ -363,3 +363,7 @@ vnoremap <silent> zb :<C-u>call setpos('.',[0,line("'>"),0,0])<Bar>normal! zbgv<
 " open new split panes to right and bottom, which feels more natural than Vim’s default:
 set splitbelow
 set splitright
+
+" vim-multiple-cursor
+let g:multi_cursor_quit_key = '<C-[>'
+
