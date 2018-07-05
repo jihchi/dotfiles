@@ -359,3 +359,7 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 vnoremap <silent> zz :<C-u>call setpos('.',[0,(line("'>")-line("'<"))/2+line("'<"),0,0])<Bar>normal! zzgv<CR>
 vnoremap <silent> zt :<C-u>call setpos('.',[0,line("'<"),0,0])<Bar>normal! ztgv<CR>
 vnoremap <silent> zb :<C-u>call setpos('.',[0,line("'>"),0,0])<Bar>normal! zbgv<CR>
+
+" open new split panes to right and bottom, which feels more natural than Vim’s default:
+set splitbelow
+set splitright
