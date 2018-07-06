@@ -142,6 +142,7 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-f> :BLines<CR>
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
