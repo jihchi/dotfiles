@@ -351,6 +351,7 @@ vmap <C-F>F <Plug>CtrlSFVwordExec
 nmap <C-F>n <Plug>CtrlSFCwordPath
 nmap <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>c :CtrlSFClose<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
