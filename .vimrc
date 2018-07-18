@@ -77,8 +77,10 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'townk/vim-autoclose'
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
-" Forget Vim tabs – now you can have buffer tabs 
+" Forget Vim tabs – now you can have buffer tabs
 Plug 'ap/vim-buftabline'
+" Provides the branch name of the current git repository
+Plug 'itchyny/vim-gitbranch'
 
 call plug#end()
 
@@ -377,9 +379,21 @@ let g:lightline = {
       \ 'component_type': {
       \   'bufferline': 'tabsel',
       \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
       \ }
 
 function! LightlineBufferline()
   call bufferline#refresh_status()
   return [ g:bufferline_status_info.before, g:bufferline_status_info.current, g:bufferline_status_info.after]
+endfunction
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'gitbranch_path'), ':h:h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
 endfunction
