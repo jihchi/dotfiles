@@ -16,8 +16,6 @@ Plug 'tpope/vim-sensible'
 " https://github.com/junegunn/fzf#respecting-gitignore-hgignore-and-svnignore
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Lean & mean status/tabline for vim that's light as air.
-Plug 'vim-airline/vim-airline'
 " quoting/parenthesizing made simple
 Plug 'tpope/vim-surround'
 " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
@@ -77,6 +75,8 @@ Plug 'dyng/ctrlsf.vim'
 " if you type an '(', ``autoclose`` will automatically insert a ')' and put
 " the cursor between than.
 Plug 'townk/vim-autoclose'
+" A light and configurable statusline/tabline plugin for Vim
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -198,17 +198,12 @@ set softtabstop=0
 set expandtab
 set smarttab
 set backspace=2
-
+set noshowmode " -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
 
 set rtp+=/usr/local/bin/fzf " fzf
 
 "" Vim Better Whitespace Plugin
 nmap <leader><leader>w :StripWhitespace<CR>
-
-"" Airline Powerline
-let g:airline_powerline_fonts = 1
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
 
 "" NERDTree
 nmap <leader>e :NERDTreeToggle<CR>
