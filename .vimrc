@@ -77,6 +77,8 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'townk/vim-autoclose'
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
+" Forget Vim tabs – now you can have buffer tabs 
+Plug 'ap/vim-buftabline'
 
 call plug#end()
 
@@ -364,3 +366,20 @@ set splitright
 " vim-multiple-cursor
 let g:multi_cursor_quit_key = '<C-[>'
 
+" lightline
+let g:lightline = {
+      \ 'tabline': {
+      \   'left': [ ['bufferline'] ]
+      \ },
+      \ 'component_expand': {
+      \   'bufferline': 'LightlineBufferline',
+      \ },
+      \ 'component_type': {
+      \   'bufferline': 'tabsel',
+      \ },
+      \ }
+
+function! LightlineBufferline()
+  call bufferline#refresh_status()
+  return [ g:bufferline_status_info.before, g:bufferline_status_info.current, g:bufferline_status_info.after]
+endfunction
