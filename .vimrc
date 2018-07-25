@@ -210,9 +210,14 @@ set rtp+=/usr/local/bin/fzf " fzf
 nmap <leader><leader>w :StripWhitespace<CR>
 
 "" NERDTree
+" https://stackoverflow.com/a/41544696
+function! IsNerdTreeEnabled()
+    return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+endfunction
+
 " https://stackoverflow.com/a/46171509
 function MyNerdToggle()
-    if &filetype == 'nerdtree'
+    if &filetype == 'nerdtree' || IsNerdTreeEnabled()
         :NERDTreeToggle
     else
         :NERDTreeFind
