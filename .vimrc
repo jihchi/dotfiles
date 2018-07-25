@@ -210,8 +210,16 @@ set rtp+=/usr/local/bin/fzf " fzf
 nmap <leader><leader>w :StripWhitespace<CR>
 
 "" NERDTree
-nmap <leader>e :NERDTreeToggle<CR>
-nmap <leader>r :NERDTreeFind<CR>
+" https://stackoverflow.com/a/46171509
+function MyNerdToggle()
+    if &filetype == 'nerdtree'
+        :NERDTreeToggle
+    else
+        :NERDTreeFind
+    endif
+endfunction
+nnoremap <leader>e :call MyNerdToggle()<CR>
+
 let NERDTreeShowHidden=1
 " enable line numbers
 let NERDTreeShowLineNumbers=1
