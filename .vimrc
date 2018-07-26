@@ -71,16 +71,14 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jakwings/vim-pony'
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 Plug 'dyng/ctrlsf.vim'
-" This plugin for Vim enable an auto-close chars feature for you. For instance
-" if you type an '(', ``autoclose`` will automatically insert a ')' and put
-" the cursor between than.
-Plug 'townk/vim-autoclose'
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
 " Forget Vim tabs – now you can have buffer tabs
 Plug 'ap/vim-buftabline'
 " Provides the branch name of the current git repository
 Plug 'itchyny/vim-gitbranch'
+" Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'Raimondi/delimitMate'
 
 call plug#end()
 
@@ -377,9 +375,6 @@ vnoremap <silent> zb :<C-u>call setpos('.',[0,line("'>"),0,0])<Bar>normal! zbgv<
 " open new split panes to right and bottom, which feels more natural than Vim’s default:
 set splitbelow
 set splitright
-
-" vim-multiple-cursor
-let g:multi_cursor_quit_key = '<C-[>'
 
 " lightline
 let g:lightline = {
