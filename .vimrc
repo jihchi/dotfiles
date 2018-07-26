@@ -410,3 +410,11 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
+
+" How to keep folds on save?
+" https://stackoverflow.com/a/37558470
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
