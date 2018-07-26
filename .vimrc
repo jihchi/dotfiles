@@ -406,10 +406,15 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
-" How to keep folds on save?
-" https://stackoverflow.com/a/37558470
-augroup remember_folds
-  autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+" https://ebonhand.wordpress.com/2011/03/30/automatically-save-and-load-vim-views-folds/
+set viewoptions-=options
+augroup vimrc
+    autocmd BufWritePost *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      mkview
+    \|  endif
+    autocmd BufRead *
+    \   if expand('%') != '' && &buftype !~ 'nofile'
+    \|      silent loadview
+    \|  endif
 augroup END

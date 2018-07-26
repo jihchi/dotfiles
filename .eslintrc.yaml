@@ -2,10 +2,10 @@ parser: babel-eslint
 extends:
 - prettier
 - prettier/react
+- airbnb
 plugins:
 - prettier
 parserOptions:
-  sourceType: module
   ecmaFeatures:
     jsx: true
 env:
