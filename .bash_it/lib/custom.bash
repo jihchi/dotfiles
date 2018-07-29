@@ -27,7 +27,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # NVM
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR=$(realpath "$HOME/.nvm")
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 ###-begin-nps-completions-###
