@@ -79,6 +79,8 @@ Plug 'ap/vim-buftabline'
 Plug 'itchyny/vim-gitbranch'
 " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Raimondi/delimitMate'
+" illuminate.vim - Vim plugin for selectively illuminating other uses of current word under the cursor
+Plug 'RRethy/vim-illuminate'
 
 call plug#end()
 
@@ -406,15 +408,4 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
-" https://ebonhand.wordpress.com/2011/03/30/automatically-save-and-load-vim-views-folds/
-set viewoptions-=options
-augroup vimrc
-    autocmd BufWritePost *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      mkview
-    \|  endif
-    autocmd BufRead *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent loadview
-    \|  endif
-augroup END
+let g:Illuminate_ftblacklist = ['nerdtree']
