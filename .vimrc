@@ -79,8 +79,8 @@ Plug 'ap/vim-buftabline'
 Plug 'itchyny/vim-gitbranch'
 " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
 Plug 'Raimondi/delimitMate'
-" illuminate.vim - Vim plugin for selectively illuminating other uses of current word under the cursor
-Plug 'RRethy/vim-illuminate'
+" Underlines the word under the cursor
+Plug 'itchyny/vim-cursorword'
 
 call plug#end()
 
