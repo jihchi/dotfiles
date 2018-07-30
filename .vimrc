@@ -407,5 +407,3 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
-
-let g:Illuminate_ftblacklist = ['nerdtree']
