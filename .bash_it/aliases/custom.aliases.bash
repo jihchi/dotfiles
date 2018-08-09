@@ -1,4 +1,4 @@
-alias gotest="fswatch -o . | xargs -n1 -I% sh -c 'go test ./...; echo ---------------------'"
+alias gotest="fswatch -o . | xargs -n1 -I% time go test ./..."
 alias curl_json="curl -H'Content-Type: application/json'"
 alias curl_form="curl -H'Content-Type: application/x-www-form-urlencoded'"
 alias curl_data="curl -H'Content-Type: multipart/form-data'"
