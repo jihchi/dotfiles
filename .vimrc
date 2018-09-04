@@ -291,9 +291,9 @@ nmap <C-l> <C-W>l
 cmap w!! w !sudo tee > /dev/null %
 
 " go next
-nnoremap <C-l> :bnext<CR>
+nnoremap <S-l> :bnext<CR>
 " go previous
-nnoremap <C-h> :bprevious<CR>
+nnoremap <S-h> :bprevious<CR>
 " close this buffer
 nnoremap <silent> <leader>q :CloseThisBuffer<CR>
 " close other buffer
@@ -317,10 +317,11 @@ nnoremap <Leader>0 :10b<CR>
 " Reason / OCaml
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'reason': ['ocaml-language-server', '--stdio'],
+    \ 'reason': ['bin.native'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'go': ['go-langserver'],
     \ }
 
 " roxma/vim-hug-neovim-rpc & roxma/nvim-yarp
