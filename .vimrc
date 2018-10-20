@@ -317,7 +317,7 @@ nnoremap <Leader>0 :10b<CR>
 " Reason / OCaml
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'reason': ['bin.native'],
+    \ 'reason': ['/usr/local/bin/reason-language-server.exe'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
