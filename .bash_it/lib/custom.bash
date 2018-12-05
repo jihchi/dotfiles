@@ -72,8 +72,3 @@ fi
 # Go Version Manager
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-# McFly - fly through your shell history
-# https://github.com/cantino/mcfly
-if [[ -f "$HOME/.bash_it/plugins/mcfly.bash" ]]; then
-  source "$HOME/.bash_it/plugins/mcfly.bash"
-fi

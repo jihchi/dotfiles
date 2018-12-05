@@ -24,3 +24,8 @@ transfer() {
 }
 
 alias transfer=transfer
+
+# https://github.com/lf94/peek-for-tmux
+# Run peek a_file_you_really_want_to_look_at.txt
+# PS! Make sure you have set export EDITOR=<your editor of choice>, otherwise the split window will just open then close.
+peek() { tmux split-window -p 33 "$EDITOR" "$@" || exit; }
