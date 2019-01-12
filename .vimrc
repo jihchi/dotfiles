@@ -81,6 +81,8 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'Raimondi/delimitMate'
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
+" Vim motions on speed!
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -317,7 +319,7 @@ nnoremap <Leader>0 :10b<CR>
 " Reason / OCaml
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'reason': ['/usr/local/bin/reason-language-server.exe'],
+    \ 'reason': ['reason-language-server.exe'],
     \ 'ocaml': ['ocaml-language-server', '--stdio'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
@@ -411,3 +413,8 @@ endfunction
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
+nmap <space> <Plug>(easymotion-overwin-f2)
