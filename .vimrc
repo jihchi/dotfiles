@@ -53,9 +53,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-" 🌠 Dark powered asynchronous completion framework for neovim/Vim8
-Plug 'Shougo/deoplete.nvim'
-" This is an experimental project, trying to build a compatibility layer for neovim rpc client working on vim8
+" This is an experimental project, trying to build a compatibility layer for
+" neovim rpc client working on vim8
 Plug 'roxma/vim-hug-neovim-rpc'
 " Yet Another Remote Plugin Framework for Neovim
 Plug 'roxma/nvim-yarp'
@@ -410,9 +409,6 @@ function! LightlineFilename()
   endif
   return expand('%')
 endfunction
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
