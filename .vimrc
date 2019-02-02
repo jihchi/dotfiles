@@ -80,8 +80,8 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'Raimondi/delimitMate'
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
-" Vim motions on speed!
-Plug 'easymotion/vim-easymotion'
+" Jump to any location specified by two characters.
+Plug 'justinmk/vim-sneak'
 
 call plug#end()
 
@@ -410,7 +410,7 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
-" EasyMotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
-nmap <space> <Plug>(easymotion-overwin-f2)
+" vim-sneak
+let g:sneak#label = 1
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
