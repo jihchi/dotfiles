@@ -117,6 +117,8 @@ set foldnestmax=10 " 10 nested fold max
 set foldmethod=indent " Fold based on indent level
 
 set showcmd
+set lazyredraw
+set regexpengine=1
 
 " ============================================================================
 " FZF {{{
@@ -412,5 +414,4 @@ endfunction
 
 " vim-sneak
 let g:sneak#label = 1
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+let g:sneak#use_ic_scs = 1
