@@ -72,8 +72,6 @@ Plug 'jakwings/vim-pony'
 Plug 'dyng/ctrlsf.vim'
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
-" Forget Vim tabs – now you can have buffer tabs
-Plug 'ap/vim-buftabline'
 " Provides the branch name of the current git repository
 Plug 'itchyny/vim-gitbranch'
 " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
@@ -150,7 +148,7 @@ command! -bang -nargs=? -complete=dir Files
 
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-f> :BLines<CR>
-nnoremap <silent> <Leader><Enter> :Buffers<CR>
+nnoremap <silent> <C-i> :Buffers<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
@@ -206,6 +204,7 @@ set expandtab
 set smarttab
 set backspace=2
 set noshowmode " -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
+set cursorline
 
 set rtp+=/usr/local/bin/fzf " fzf
 
@@ -415,3 +414,5 @@ endfunction
 " vim-sneak
 let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
