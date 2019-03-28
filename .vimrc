@@ -28,8 +28,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'pangloss/vim-javascript'
 " 🔦 [Vim script] React JSX syntax pretty highlighting for vim.
 Plug 'maxmellon/vim-jsx-pretty'
-" React JSX syntax highlighting and indenting for vim.
-Plug 'mxw/vim-jsx'
 " Molokai color scheme for Vim
 Plug 'fatih/molokai'
 " Nerdtree
@@ -80,6 +78,17 @@ Plug 'Raimondi/delimitMate'
 Plug 'itchyny/vim-cursorword'
 " Jump to any location specified by two characters.
 Plug 'justinmk/vim-sneak'
+" A better JSON for Vim: distinct highlighting of keywords vs values, JSON-specific (non-JS) warnings, quote concealing. Pathogen-friendly.
+Plug 'elzr/vim-json'
+" EditorConfig Vim Plugin
+Plug 'editorconfig/editorconfig-vim'
+" Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+Plug 'w0rp/ale'
+" A collection of language packs for Vim.
+Plug 'sheerun/vim-polyglot'
+" Edit large files quickly (keywords: large huge speed)
+Plug 'vim-scripts/LargeFile'
+
 
 call plug#end()
 
@@ -112,7 +121,7 @@ nnoremap <leader><space> :nohls <enter>
 set foldenable " Enable folding
 set foldlevelstart=10 " Open most folds by default
 set foldnestmax=10 " 10 nested fold max
-set foldmethod=indent " Fold based on indent level
+set foldmethod=syntax " Fold based on indent level
 
 set showcmd
 set lazyredraw
@@ -416,3 +425,5 @@ let g:sneak#label = 1
 let g:sneak#use_ic_scs = 1
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
+
+let g:multi_cursor_exit_from_insert_mode = 0
