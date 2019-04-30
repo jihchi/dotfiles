@@ -88,7 +88,10 @@ Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 " Edit large files quickly (keywords: large huge speed)
 Plug 'vim-scripts/LargeFile'
-
+" Vim configuration for Rust.
+Plug 'rust-lang/rust.vim'
+" Make Vim persist editing state without fuss
+Plug 'zhimsel/vim-stay'
 
 call plug#end()
 
@@ -333,6 +336,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'go': ['go-langserver'],
+    \ 'rust': ['rls'],
     \ }
 
 " roxma/vim-hug-neovim-rpc & roxma/nvim-yarp
@@ -427,3 +431,6 @@ map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
 let g:multi_cursor_exit_from_insert_mode = 0
+
+" vim-stay
+set viewoptions=cursor,folds,slash,unix
