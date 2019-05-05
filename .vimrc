@@ -64,16 +64,12 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'matze/vim-move'
 " Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Simple Vim configuration for Ponylang. 🐴 https://github.com/ponylang/ponyc
-Plug 'jakwings/vim-pony'
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 Plug 'dyng/ctrlsf.vim'
 " A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
 " Provides the branch name of the current git repository
 Plug 'itchyny/vim-gitbranch'
-" Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
-Plug 'Raimondi/delimitMate'
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
 " Jump to any location specified by two characters.
