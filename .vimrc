@@ -82,8 +82,6 @@ Plug 'justinmk/vim-sneak'
 Plug 'elzr/vim-json'
 " EditorConfig Vim Plugin
 Plug 'editorconfig/editorconfig-vim'
-" Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
-Plug 'w0rp/ale'
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
 " Edit large files quickly (keywords: large huge speed)
@@ -92,6 +90,8 @@ Plug 'vim-scripts/LargeFile'
 Plug 'rust-lang/rust.vim'
 " Make Vim persist editing state without fuss
 Plug 'zhimsel/vim-stay'
+" Intellisense engine for vim8 & neovim, full language server protocol support as VSCode
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 call plug#end()
 
@@ -191,7 +191,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_auto_type_info = 1
 let g:go_metalinter_autosave = 1
-set updatetime=250
 
 syntax on " Syntax highlight
 set t_Co=256 " 256 colors, please
@@ -434,3 +433,13 @@ let g:multi_cursor_exit_from_insert_mode = 0
 
 " vim-stay
 set viewoptions=cursor,folds,slash,unix
+
+" coc.vim
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" always show signcolumns
+set signcolumn=yes
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
