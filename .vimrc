@@ -84,8 +84,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/LargeFile'
 " Vim configuration for Rust.
 Plug 'rust-lang/rust.vim'
-" Make Vim persist editing state without fuss
-Plug 'zhimsel/vim-stay'
 " Intellisense engine for vim8 & neovim, full language server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
@@ -426,9 +424,6 @@ map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
 let g:multi_cursor_exit_from_insert_mode = 0
-
-" vim-stay
-set viewoptions=cursor,folds,slash,unix
 
 " coc.vim
 " Better display for messages
