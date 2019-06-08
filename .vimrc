@@ -302,7 +302,7 @@ nnoremap <S-l> :bnext<CR>
 " go previous
 nnoremap <S-h> :bprevious<CR>
 " close this buffer
-nnoremap <silent> <leader>q :CloseThisBuffer<CR>
+nnoremap <silent> <leader>q :bd<CR>
 " close other buffer
 nnoremap <silent> Q :CloseBuffersMenu<CR>
 
