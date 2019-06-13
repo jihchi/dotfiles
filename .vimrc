@@ -60,8 +60,6 @@ Plug 'roxma/nvim-yarp'
 Plug 'luochen1990/rainbow'
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
-" Plugin to move lines and selections up and down
-Plug 'matze/vim-move'
 " Go development plugin for Vim
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
@@ -84,8 +82,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/LargeFile'
 " Vim configuration for Rust.
 Plug 'rust-lang/rust.vim'
-" Intellisense engine for vim8 & neovim, full language server protocol support as VSCode
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 
 call plug#end()
 
@@ -152,49 +148,28 @@ let g:fzf_colors =
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
+set rtp+=/usr/local/bin/fzf " fzf
+
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-f> :BLines<CR>
 nnoremap <silent> <C-i> :Buffers<CR>
+nnoremap <silent> <Leader>f :BLines<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
 
-" vim-go
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#test#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-autocmd FileType go nmap ,b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap ,c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap ,r <Plug>(go-run)
-autocmd FileType go nmap ,i <Plug>(go-info)
-let g:go_fmt_command = "goimports"
-let g:go_highlight_types = 1
-let g:go_highlight_fields =  1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_auto_type_info = 1
-let g:go_metalinter_autosave = 1
-
 syntax on " Syntax highlight
 set t_Co=256 " 256 colors, please
 set t_ut= " Fix bg color inside tmux sessions
+
 let g:molokai_original = 1
 let g:rehash256 = 1
 colorscheme molokai
+
 set relativenumber " Using relative line numbers in Vim
 set number " Display line number
+
 filetype indent on " Load filetype-specific indent files
+
 set wildmenu " Visual autocomplete for command menu
 set wildmode=longest:full,full
 set wildignore=*.swp,*.bak,**/.git/*
@@ -210,8 +185,6 @@ set smarttab
 set backspace=2
 set noshowmode " -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
 set cursorline
-
-set rtp+=/usr/local/bin/fzf " fzf
 
 "" Vim Better Whitespace Plugin
 nmap <leader><leader>w :StripWhitespace<CR>
@@ -273,8 +246,6 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Prettier
 let g:prettier#exec_cmd_async = 1
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#trailing_comma = 'es5'
 
 " vim-jsx
 let g:jsx_ext_required = 0
@@ -288,40 +259,14 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" Super fast window movement shortcuts
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
-" go next
-nnoremap <S-l> :bnext<CR>
-" go previous
-nnoremap <S-h> :bprevious<CR>
 " close this buffer
 nnoremap <silent> <leader>q :bd<CR>
 " close other buffer
 nnoremap <silent> Q :CloseBuffersMenu<CR>
 
-" http://vim.wikia.com/wiki/Easier_buffer_switching
-" Mappings to access buffers (don't use "\p" because a
-" delay before pressing "p" would accidentally paste).
-" \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
-
-" Reason / OCaml
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['reason-language-server.exe'],
@@ -338,18 +283,6 @@ nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
 nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
 
 let g:rainbow_active = 1
-
-" 'matze/vim-move'
-" <C-k>   Move current line/selections up
-" <C-j>   Move current line/selections down
-let g:move_key_modifier = 'C'
-
-" MUcomplete
-" Mandatory
-set completeopt+=menuone,noinsert,noselect
-set shortmess+=c   " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completion
-let g:mucomplete#enable_auto_at_startup = 1
 
 set nobackup " Everything will be ok
 set nowritebackup
@@ -423,14 +356,5 @@ let g:sneak#use_ic_scs = 1
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
+" multi cursor
 let g:multi_cursor_exit_from_insert_mode = 0
-
-" coc.vim
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" always show signcolumns
-set signcolumn=yes
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
