@@ -82,6 +82,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/LargeFile'
 " Vim configuration for Rust.
 Plug 'rust-lang/rust.vim'
+" 🌠 Dark powered asynchronous completion framework for neovim/Vim8
+Plug 'Shougo/deoplete.nvim'
 
 call plug#end()
 
@@ -353,3 +355,11 @@ map F <Plug>Sneak_S
 
 " multi cursor
 let g:multi_cursor_exit_from_insert_mode = 0
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+\ 'auto_complete_delay': 50,
+\ 'yarp': v:true,
+\ })
+
