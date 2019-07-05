@@ -358,8 +358,11 @@ let g:multi_cursor_exit_from_insert_mode = 0
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option({
-\ 'auto_complete_delay': 50,
-\ 'yarp': v:true,
-\ })
 
+" deoplete + mutiple cursor
+function g:Multiple_cursors_before()
+  call deoplete#custom#buffer_option('auto_complete', v:false)
+endfunction
+function g:Multiple_cursors_after()
+  call deoplete#custom#buffer_option('auto_complete', v:true)
+endfunction
