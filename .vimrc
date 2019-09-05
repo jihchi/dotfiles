@@ -260,7 +260,8 @@ autocmd FileChangedShellPost *
 cmap w!! w !sudo tee > /dev/null %
 
 " close this buffer
-nnoremap <silent> <leader>q :bd<CR>
+nnoremap <silent> <leader>q :bp\|bd #<CR>
+
 " close other buffer
 nnoremap <silent> Q :CloseBuffersMenu<CR>
 
