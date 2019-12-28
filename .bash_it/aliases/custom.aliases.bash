@@ -11,3 +11,4 @@ alias gdtc="git difftool --cached"
 alias gmt="git mergetool"
 
 alias youtube-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'"
+alias dl="aria2c --max-connection-per-server=16 --max-concurrent-downloads=8 --file-allocation=none"

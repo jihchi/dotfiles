@@ -263,7 +263,7 @@ cmap w!! w !sudo tee > /dev/null %
 nnoremap <silent> <leader>q :bp\|bd #<CR>
 
 " close other buffer
-nnoremap <silent> Q :CloseBuffersMenu<CR>
+nnoremap <silent> Q :Bdelete menu<CR>
 
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
