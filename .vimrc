@@ -267,8 +267,7 @@ nnoremap <silent> Q :Bdelete menu<CR>
 
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'reason': ['reason-language-server.exe'],
-    \ 'ocaml': ['ocaml-language-server', '--stdio'],
+    \ 'reason': ['reason-language-server'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'go': ['go-langserver'],
