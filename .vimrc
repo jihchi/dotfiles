@@ -366,3 +366,6 @@ endfunction
 function g:Multiple_cursors_after()
   call deoplete#custom#buffer_option('auto_complete', v:true)
 endfunction
+
+" deoplete.txt: Q: I want to close the preview window after completion is done.
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
