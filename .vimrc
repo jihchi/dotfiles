@@ -84,6 +84,8 @@ Plug 'vim-scripts/LargeFile'
 Plug 'rust-lang/rust.vim'
 " 🌠 Dark powered asynchronous completion framework for neovim/Vim8
 Plug 'Shougo/deoplete.nvim'
+" ☀️ A vim plugin for highlighting and navigating through different words in a buffer.
+Plug 'lfv89/vim-interestingwords'
 
 call plug#end()
 
@@ -110,7 +112,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <leader><space> :nohls <enter>
+nnoremap <silent> <C-l> :nohls <enter>
 
 "" Folding
 set foldenable " Enable folding
@@ -270,6 +272,8 @@ let g:LanguageClient_serverCommands = {
     \ 'reason': ['reason-language-server'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'typescript.jsx': ['javascript-typescript-stdio'],
     \ 'go': ['go-langserver'],
     \ 'rust': ['rls'],
     \ }
@@ -293,8 +297,8 @@ set novisualbell " Turn noise off
 set noerrorbells
 set vb t_vb=
 
-set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¬,precedes:«,extends:»
-"set list
+set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
+set list
 
 " CtrlSF
 nmap <C-F>f <Plug>CtrlSFPrompt
