@@ -82,6 +82,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/LargeFile'
 " Vim configuration for Rust.
 Plug 'rust-lang/rust.vim'
+" A Vim plugin that enhances Rust syntax highlighting
+Plug 'arzg/vim-rust-syntax-ext'
 " 🌠 Dark powered asynchronous completion framework for neovim/Vim8
 Plug 'Shougo/deoplete.nvim'
 " ☀️ A vim plugin for highlighting and navigating through different words in a buffer.
