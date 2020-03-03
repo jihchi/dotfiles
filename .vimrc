@@ -248,6 +248,9 @@ let g:NERDTreeIndicatorMapCustom = {
 " Prettier
 let g:prettier#exec_cmd_async = 1
 
+" This makes prettier-eslint-cli power the gq command for automatic formatting without any plugins.
+autocmd FileType javascript set formatprg=prettier-eslint\ --stdin
+
 " vim-jsx
 let g:jsx_ext_required = 0
 
