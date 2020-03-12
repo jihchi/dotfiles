@@ -150,7 +150,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <Leader>i :Buffers<CR>
+nnoremap <silent> <C-l> :Buffers<CR>
 nnoremap <silent> <Leader>f :BLines<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
