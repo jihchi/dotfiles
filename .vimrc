@@ -60,8 +60,6 @@ Plug 'roxma/nvim-yarp'
 Plug 'luochen1990/rainbow'
 " True Sublime Text style multiple selections for Vim
 Plug 'terryma/vim-multiple-cursors'
-" Go development plugin for Vim
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
 Plug 'dyng/ctrlsf.vim'
 " A light and configurable statusline/tabline plugin for Vim
@@ -84,10 +82,10 @@ Plug 'vim-scripts/LargeFile'
 Plug 'rust-lang/rust.vim'
 " A Vim plugin that enhances Rust syntax highlighting
 Plug 'arzg/vim-rust-syntax-ext'
-" 🌠 Dark powered asynchronous completion framework for neovim/Vim8
-Plug 'Shougo/deoplete.nvim'
 " ☀️ A vim plugin for highlighting and navigating through different words in a buffer.
 Plug 'lfv89/vim-interestingwords'
+" A code-completion engine for Vim
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -364,17 +362,3 @@ map F <Plug>Sneak_S
 
 " multi cursor
 let g:multi_cursor_exit_from_insert_mode = 0
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
-" deoplete + mutiple cursor
-function g:Multiple_cursors_before()
-  call deoplete#custom#buffer_option('auto_complete', v:false)
-endfunction
-function g:Multiple_cursors_after()
-  call deoplete#custom#buffer_option('auto_complete', v:true)
-endfunction
-
-" deoplete.txt: Q: I want to close the preview window after completion is done.
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
