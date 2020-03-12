@@ -112,7 +112,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-nnoremap <silent> <C-l> :nohls <enter>
+nnoremap <silent> <Leader><Leader>l :nohls <enter>
 
 "" Folding
 set foldenable " Enable folding
