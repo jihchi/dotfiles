@@ -92,7 +92,7 @@ Plug 'lfv89/vim-interestingwords'
 call plug#end()
 
 "" Leader key
-let mapleader = '\'
+let mapleader = ' '
 
 "" Text Wrapping
 set textwidth=79
@@ -151,8 +151,8 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <C-i> :Buffers<CR>
+nnoremap <silent> <Leader>p :Files<CR>
+nnoremap <silent> <Leader>i :Buffers<CR>
 nnoremap <silent> <Leader>f :BLines<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
