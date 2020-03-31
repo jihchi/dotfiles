@@ -103,5 +103,8 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Ctrl+U -- delete from current position to the beginning of the line
+bindkey "^u" backward-kill-line
+
 # fnm
 [ -x "$(command -v fnm)" ] && eval "$(fnm env --multi)"
