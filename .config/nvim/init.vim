@@ -7,13 +7,7 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" Language Server Protocol (LSP) support for vim and neovim.
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
-
-" fzf â¤ï¸ vim
+" fzf ❤️  vim
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -66,9 +60,6 @@ Plug 'cespare/vim-toml'
 " A solid language pack for Vim.
 Plug 'sheerun/vim-polyglot'
 
-" Dark powered asynchronous completion framework for neovim/Vim8
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
 
@@ -77,11 +68,6 @@ Plug 'itchyny/vim-cursorword'
 " The difference is that this repo is the standalone version. This one does NOT depend on any other library or plugin. All you need is vim itself, nothing more!
 Plug 'ayuanx/vim-mark-standalone'
 
-" Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support
-Plug 'dense-analysis/ale'
-" ALE indicator for the lightline vim plugin
-Plug 'maximbaz/lightline-ale'
-
 call plug#end()
 
 syntax on
@@ -89,7 +75,7 @@ colorscheme dracula
 set relativenumber " using relative line numbers in Vim
 set number " display line number
 set cursorline
-set listchars=tab:â†’\ ,nbsp:â£,trail:â€¢,precedes:Â«,extends:Â»
+set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
 set list
 set tabstop=4 " the width of a TAB is set to 4. Still it is a \t. It is just that Vim will interpret it to be having a width of 4.
 set shiftwidth=4 " indents will have a width of 4
@@ -181,43 +167,3 @@ map F <Plug>Sneak_S
 
 " multi cursor
 let g:multi_cursor_exit_from_insert_mode = 0
-
-" deoplete
-" Q: Neovim startup is slow when |g:deoplete#enable_at_startup| is enabled.
-let g:deoplete#python3_host_prog = "/bin/python3"
-let g:deoplete#enable_at_startup = 0
-autocmd InsertEnter * call deoplete#enable()
-
-" Q: Deoplete does not work with vim-multiple-cursors.
-function g:Multiple_cursors_before()
-  call deoplete#custom#buffer_option('auto_complete', v:false)
-endfunction
-function g:Multiple_cursors_after()
-  call deoplete#custom#buffer_option('auto_complete', v:true)
-endfunction
-
-" Q: I want to close the preview window after completion is done.
-autocmd InsertLeave * silent! pclose!
-
-" autozimu/LanguageClient-neovim
-" Required for operations modifying multiple buffers like rename.
-set hidden
-
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['/cs/app/dev/.nvm/versions/node/v12.16.1/bin/javascript-typescript-stdio'],
-    \ }
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" lightline-ale
-let g:ale_linters = {
-  \   'javascript': ['eslint'],
-  \ }
-
-let g:lightline#ale#indicator_checking = "\uf110"
-let g:lightline#ale#indicator_infos = "\uf129"
-let g:lightline#ale#indicator_warnings = "\uf071"
-let g:lightline#ale#indicator_errors = "\uf05e"
-let g:lightline#ale#indicator_ok = "\uf00c"
