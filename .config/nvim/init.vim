@@ -23,8 +23,9 @@ Plug 'tpope/vim-fugitive'
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
 
-" Dracula dark theme for Vim https://draculatheme.com/vim
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Retro groove color scheme for Vim - community maintained edition
+Plug 'gruvbox-community/gruvbox'
+
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -71,10 +72,17 @@ Plug 'ayuanx/vim-mark-standalone'
 " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Vim configuration for Rust.
+Plug 'rust-lang/rust.vim'
+
+" Plugin to toggle, display and navigate marks
+Plug 'kshenoy/vim-signature'
+
 call plug#end()
 
 syntax on
-colorscheme dracula
+colorscheme gruvbox
+set background=dark " Setting dark mode
 set relativenumber " using relative line numbers in Vim
 set number " display line number
 set cursorline
