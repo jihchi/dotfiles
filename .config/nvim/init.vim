@@ -64,11 +64,6 @@ Plug 'sheerun/vim-polyglot'
 " Underlines the word under the cursor
 Plug 'itchyny/vim-cursorword'
 
-" Highlight several words in different colors simultaneously.
-" Plug 'inkarkat/vim-mark'
-" The difference is that this repo is the standalone version. This one does NOT depend on any other library or plugin. All you need is vim itself, nothing more!
-Plug 'ayuanx/vim-mark-standalone'
-
 " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -78,20 +73,31 @@ Plug 'rust-lang/rust.vim'
 " Plugin to toggle, display and navigate marks
 Plug 'kshenoy/vim-signature'
 
+" vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
+Plug 'andymass/vim-matchup'
+
+" Changes Vim working directory to project root (identified by presence of known directory or file).
+Plug 'airblade/vim-rooter'
+
 call plug#end()
 
 syntax on
 colorscheme gruvbox
+set nocompatible
+filetype off
 set background=dark " Setting dark mode
 set relativenumber " using relative line numbers in Vim
 set number " display line number
 set cursorline
-set listchars=tab:→\ ,nbsp:␣,trail:•,precedes:«,extends:»
+set listchars=tab:→\ ,nbsp:¬,trail:•,precedes:«,extends:»
 set list
-set tabstop=4 " the width of a TAB is set to 4. Still it is a \t. It is just that Vim will interpret it to be having a width of 4.
-set shiftwidth=4 " indents will have a width of 4
-set softtabstop=4 " sets the number of columns for a TAB
-set expandtab " expand TABs to spaces
+
+" Use wide tabs
+set shiftwidth=8
+set softtabstop=8
+set tabstop=8
+set noexpandtab
+
 " switch off automatic creation of backup files
 set nobackup
 set nowritebackup
@@ -182,6 +188,9 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " coc.nvim
 " TextEdit might fail if hidden is not set.
 set hidden
+
+" Better display for messages
+set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -309,3 +318,34 @@ let g:lightline = {
 
 " Use auocmd to force lightline update.
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+" JavaScript
+let javaScript_fold=0
+
+" Quick-save
+nmap <leader>w :w<CR>
+
+filetype plugin indent on
+set autoindent
+set encoding=utf-8
+
+" Sane splits
+set splitright
+set splitbelow
+
+" Decent wildmenu
+set wildmenu
+set wildmode=list:longest
+set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
+
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" Very magic by default
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
