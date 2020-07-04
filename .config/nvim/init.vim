@@ -78,6 +78,9 @@ Plug 'andymass/vim-matchup'
 " Changes Vim working directory to project root (identified by presence of known directory or file).
 Plug 'airblade/vim-rooter'
 
+" 💻 🤘 Make logging in Vim great as it has never been
+Plug 'glippi/lognroll-vim'
+
 call plug#end()
 
 """"" enable 24bit true color
@@ -361,3 +364,5 @@ nnoremap <silent> g* g*zz
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
+
+let g:lognroll#enable_insert_mode = 0
