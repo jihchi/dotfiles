@@ -7,6 +7,9 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
+" A 24bit dark Vim colorscheme based on sdras/night-owl-vscode-theme
+Plug 'haishanh/night-owl.vim'
+
 " fzf ❤️  vim
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -22,10 +25,6 @@ Plug 'tpope/vim-fugitive'
 
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
-
-" Retro groove color scheme for Vim - community maintained edition
-Plug 'gruvbox-community/gruvbox'
-
 
 " Nerdtree
 Plug 'scrooloose/nerdtree'
@@ -81,8 +80,21 @@ Plug 'airblade/vim-rooter'
 
 call plug#end()
 
-syntax on
-colorscheme gruvbox
+""""" enable 24bit true color
+
+" If you have vim >=8.0 or Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" For Neovim 0.1.3 and 0.1.4
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+""""" enable the theme
+
+syntax enable
+colorscheme night-owl
+
 set nocompatible
 filetype off
 set background=dark " Setting dark mode
@@ -96,7 +108,7 @@ set list
 set shiftwidth=8
 set softtabstop=8
 set tabstop=8
-set noexpandtab
+set expandtab
 
 " switch off automatic creation of backup files
 set nobackup
@@ -306,7 +318,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 let g:lightline = {
-  \ 'colorscheme': 'wombat',
+  \ 'colorscheme': 'nightowl',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
