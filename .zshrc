@@ -116,7 +116,7 @@ export LANG=en_US.UTF-8
 bindkey "^u" backward-kill-line
 
 # fnm
-[ -x "$(command -v fnm)" ] && eval "$(fnm env --multi)"
+[ -x "$(command -v fnm)" ] && eval "$(fnm env)"
 
 alias busy="while true; do cliclick c:+0,+0; sleep 5; done"
 
