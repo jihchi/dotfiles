@@ -81,6 +81,9 @@ Plug 'airblade/vim-rooter'
 " 💻 🤘 Make logging in Vim great as it has never been
 Plug 'glippi/lognroll-vim'
 
+" Vim syntax for ReScript
+Plug 'amiralies/vim-rescript'
+
 call plug#end()
 
 """"" enable 24bit true color

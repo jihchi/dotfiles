@@ -46,6 +46,8 @@ Plug 'Asheq/close-buffers.vim'
 Plug 'avakhov/vim-yaml'
 " Vim support for Reason/OCaml
 Plug 'reasonml-editor/vim-reason-plus'
+" Syntax highlighting for ReSript files
+Plug 'amiralies/vim-rescript'
 " Language Server Protocol support for neovim and vim.
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
