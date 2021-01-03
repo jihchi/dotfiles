@@ -144,6 +144,8 @@ set novisualbell
 set t_vb=
 set tm=500
 
+set colorcolumn=80
+
 " map <space> as leader
 nnoremap <Space> <nop>
 vnoremap <Space> <nop>
@@ -184,15 +186,15 @@ endfunction
 nnoremap <leader>e :call MyNerdToggle()<CR>
 
 " CtrlSF
-nmap <C-F>f <Plug>CtrlSFPrompt
-vmap <C-F>f <Plug>CtrlSFVwordPath
-vmap <C-F>F <Plug>CtrlSFVwordExec
-nmap <C-F>n <Plug>CtrlSFCwordPath
-nmap <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>c :CtrlSFClose<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+nmap <C-S>f <Plug>CtrlSFPrompt
+vmap <C-S>f <Plug>CtrlSFVwordPath
+vmap <C-S>F <Plug>CtrlSFVwordExec
+nmap <C-S>n <Plug>CtrlSFCwordPath
+nmap <C-S>p <Plug>CtrlSFPwordPath
+nnoremap <C-S>o :CtrlSFOpen<CR>
+nnoremap <C-S>c :CtrlSFClose<CR>
+nnoremap <C-S>t :CtrlSFToggle<CR>
+inoremap <C-S>t <Esc>:CtrlSFToggle<CR>
 
 " vim-sneak
 let g:sneak#label = 1
@@ -417,3 +419,5 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-rust-analyzer',
 \]
+
+let g:rustfmt_autosave = 1
