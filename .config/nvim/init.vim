@@ -81,8 +81,8 @@ Plug 'airblade/vim-rooter'
 " 💻 🤘 Make logging in Vim great as it has never been
 Plug 'glippi/lognroll-vim'
 
-" Vim syntax for ReScript
-Plug 'amiralies/vim-rescript'
+" the official vim plugin for ReScript.
+Plug 'rescript-lang/vim-rescript'
 
 call plug#end()
 
