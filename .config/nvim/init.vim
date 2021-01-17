@@ -7,149 +7,113 @@ endif
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" A 24bit dark Vim colorscheme based on sdras/night-owl-vscode-theme
-Plug 'haishanh/night-owl.vim'
-
-" fzf ❤️  vim
-Plug 'junegunn/fzf'
+Plug 'Raimondi/delimitMate' " Vim plugin, provides insert mode auto-completion for quotes, parens, brackets, etc.
+Plug 'haishanh/night-owl.vim' " A 24bit dark Vim colorscheme based on sdras/night-owl-vscode-theme
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fzf ❤️  vim
 Plug 'junegunn/fzf.vim'
-
-" quoting/parenthesizing made simple
-Plug 'tpope/vim-surround'
-
-" A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
-Plug 'airblade/vim-gitgutter'
-
-" fugitive.vim: a Git wrapper so awesome, it should be i1llegal
-Plug 'tpope/vim-fugitive'
-
-" Better whitespace highlighting for Vim
-Plug 'ntpeters/vim-better-whitespace'
-
-" Nerdtree
-Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround' " quoting/parenthesizing made simple
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks.
+Plug 'tpope/vim-fugitive' " fugitive.vim: a Git wrapper so awesome, it should be i1llegal
+Plug 'ntpeters/vim-better-whitespace' " Better whitespace highlighting for Vim
+Plug 'scrooloose/nerdtree' " Nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status flags.
-
-" Prettier
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-
-" commentary.vim: comment stuff out
-Plug 'tpope/vim-commentary'
-
-" Useful vim commands to close buffers
-Plug 'Asheq/close-buffers.vim'
-
-" True Sublime Text style multiple selections for Vim
-Plug 'terryma/vim-multiple-cursors'
-
-" An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
-Plug 'dyng/ctrlsf.vim'
-
-" A light and configurable statusline/tabline plugin for Vim
-Plug 'itchyny/lightline.vim'
-
-" Jump to any location specified by two characters.
-Plug 'justinmk/vim-sneak'
-
-" EditorConfig Vim Plugin
-Plug 'editorconfig/editorconfig-vim'
-
-" Vim syntax for TOML
-Plug 'cespare/vim-toml'
-
-" A solid language pack for Vim.
-Plug 'sheerun/vim-polyglot'
-
-" Underlines the word under the cursor
-Plug 'itchyny/vim-cursorword'
-
-" Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Vim configuration for Rust.
-Plug 'rust-lang/rust.vim'
-
-" Plugin to toggle, display and navigate marks
-Plug 'kshenoy/vim-signature'
-
-" vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
-Plug 'andymass/vim-matchup'
-
-" Changes Vim working directory to project root (identified by presence of known directory or file).
-Plug 'airblade/vim-rooter'
-
-" 💻 🤘 Make logging in Vim great as it has never been
-Plug 'glippi/lognroll-vim'
-
-" the official vim plugin for ReScript.
-Plug 'rescript-lang/vim-rescript'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier
+Plug 'tpope/vim-commentary' " commentary.vim: comment stuff out
+Plug 'machakann/vim-highlightedyank' " Make the yanked region apparent!
+Plug 'Asheq/close-buffers.vim' " Useful vim commands to close buffers
+Plug 'terryma/vim-multiple-cursors' " True Sublime Text style multiple selections for Vim
+Plug 'dyng/ctrlsf.vim' " An ack.vim alternative mimics Ctrl-Shift-F on Sublime Text 2
+Plug 'itchyny/lightline.vim' " A light and configurable statusline/tabline plugin for Vim
+Plug 'justinmk/vim-sneak' " Jump to any location specified by two characters.
+Plug 'editorconfig/editorconfig-vim' " EditorConfig Vim Plugin
+Plug 'cespare/vim-toml' " Vim syntax for TOML
+Plug 'ekalinin/Dockerfile.vim' " Vim syntax file & snippets for Docker's Dockerfile
+Plug 'sheerun/vim-polyglot' " A solid language pack for Vim.
+Plug 'itchyny/vim-cursorword' " Underlines the word under the cursor
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine for Vim8 & Neovim, full language server protocol support as VSCode
+Plug 'rust-lang/rust.vim' " Vim configuration for Rust.
+Plug 'kshenoy/vim-signature' " Plugin to toggle, display and navigate marks
+Plug 'andymass/vim-matchup' " vim match-up: even better % 👊 navigate and highlight matching words 👊 modern matchit and matchparen replacement
+Plug 'airblade/vim-rooter' " Changes Vim working directory to project root (identified by presence of known directory or file).
+Plug 'glippi/lognroll-vim' " 💻 🤘 Make logging in Vim great as it has never been
+Plug 'rescript-lang/vim-rescript' " the official vim plugin for ReScript.
 
 call plug#end()
 
-""""" enable 24bit true color
-
-" If you have vim >=8.0 or Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
-
-" For Neovim 0.1.3 and 0.1.4
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-""""" enable the theme
+filetype off
+set nocompatible
 
 syntax enable
+set termguicolors " Enable 24bit true color
 colorscheme night-owl
-
-set nocompatible
-filetype off
 set background=dark " Setting dark mode
-set relativenumber " using relative line numbers in Vim
-set number " display line number
-set cursorline
-set listchars=tab:→\ ,nbsp:¬,trail:•,precedes:«,extends:»
-set list
 
-" Use wide tabs
-set shiftwidth=8
-set softtabstop=8
-set tabstop=8
-set expandtab
+set relativenumber " Show relative numbers
+set number " Don't show line numbers
+set numberwidth=3 " The width of the number column
 
-" switch off automatic creation of backup files
-set nobackup
+set fillchars+=vert:\  " Don't show pipes in vertical splits
+set list " Show some more characters
+set listchars=tab:▸\
+set listchars+=extends:❯
+set listchars+=nbsp:␣
+set listchars+=precedes:❮
+set listchars+=trail:·
+
+" indentation
+set expandtab " Indent with spaces
+set shiftwidth=2 " Number of spaces to use when indenting
+set smartindent " Auto indent new lines
+set softtabstop=2 " Number of spaces a <tab> counts for when inserting
+set tabstop=2 " Number of spaces a <tab> counts for
+
+" spell checking
+set nospell " Disable spell checking by default
+set spelllang=en_us " Use English US for spell checking
+
+set splitbelow " open new split panes to right and bottom, which feels more natural than Vim default:
+set splitright
+
+" backup
+set nobackup " switch off automatic creation of backup files
 set nowritebackup
 set noswapfile
-" open new split panes to right and bottom, which feels more natural than Vimâ€™s default:
-set splitbelow
-set splitright
-" ignore case when searching
-set ignorecase
-" when searching try to be smart about cases
-set smartcase
-" highlight search results
-set hlsearch
-" makes search act like search in modern browsers
-set incsearch
-" don't redraw while executing macros (good performance config)
-set lazyredraw
-" show matching brackets when text indicator is over them
-set showmatch
-" set to auto read when a file is changed from the outside
-set autoread
-au CursorHold * checktime
-" no annoying sound on errors
-set noerrorbells
+
+" searching
+set ignorecase " ignore case when searching
+set smartcase " when searching try to be smart about cases
+set hlsearch " highlight search results
+set incsearch " makes search act like search in modern browsers
+
+set lazyredraw " don't redraw while executing macros (good performance config)
+set showmatch " show matching brackets when text indicator is over them
+set autoread " set to auto read when a file is changed from the outside
+
+set noerrorbells " no annoying sound on errors
 set novisualbell
 set t_vb=
 set tm=500
-
 set colorcolumn=80
+set wrap " Wrap long lines
+filetype plugin indent on
+set autoindent
+set encoding=utf-8
+set wildmenu " Decent wildmenu
+set wildmode=list:longest
+set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
+
+" folds
+set foldenable " Enable folds
+set foldlevelstart=99 " Open all folds by default
+set foldmethod=indent " Fold by indentation
+
+" Give more space for displaying messages.
+set cmdheight=1
 
 " map <space> as leader
 nnoremap <Space> <nop>
 vnoremap <Space> <nop>
-let mapleader = ' '
+let mapleader = "\<Space>"
 
 nnoremap <silent> <Leader><Leader>l :nohls <enter>
 nnoremap <silent> <C-p> :Files<CR>
@@ -158,12 +122,35 @@ nnoremap <silent> <Leader>s :BLines<CR>
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR>
 xnoremap <silent> <Leader>ag y:Ag <C-R>"<CR>
+
 " Vim Better Whitespace Plugin
 nmap <leader><leader>w :StripWhitespace<CR>
-" close this buffer
+
+" Close this buffer
 nnoremap <silent> <leader>q :bp\|bd #<CR>
-" close other buffer
+
+" Close other buffer
 nnoremap <silent> Q :Bdelete menu<CR>
+
+" Quickly insert semicolon at end of line
+noremap <leader>; maA;<esc>`a
+
+" Quickly insert comma at end of line
+noremap <leader>, maA,<esc>`a
+
+" Quick-save
+nmap <leader>w :w<CR>
+
+" Hide/show the cursor line when leaving/entering a window
+augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au WinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
+au CursorHold * checktime
 
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
@@ -171,10 +158,12 @@ autocmd  FileType fzf set laststatus=0 noshowmode noruler
 
 " NERDTree
 let NERDTreeShowHidden=1
+
 " https://stackoverflow.com/a/41544696
 function! IsNerdTreeEnabled()
     return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
 endfunction
+
 " https://stackoverflow.com/a/46171509
 function MyNerdToggle()
     if &filetype == 'nerdtree' || IsNerdTreeEnabled()
@@ -208,13 +197,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " coc.nvim
 " TextEdit might fail if hidden is not set.
 set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -344,54 +326,17 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 command! -nargs=0 Format :call CocAction('format')
 
 " Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Mappings for CoCList
-" Show all diagnostics.
-" nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-" nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-" nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-" nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-" nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-" nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-" nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-" nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
 nmap <leader><leader>p :Format<CR>
-
-" JavaScript
-let javaScript_fold=0
-
-" Quick-save
-nmap <leader>w :w<CR>
-
-filetype plugin indent on
-set autoindent
-set encoding=utf-8
-
-" Sane splits
-set splitright
-set splitbelow
-
-" Decent wildmenu
-set wildmenu
-set wildmode=list:longest
-set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Search results centered please
 nnoremap <silent> n nzz
@@ -421,3 +366,10 @@ let g:coc_global_extensions = [
 \]
 
 let g:rustfmt_autosave = 1
+
+" Don't jump around when using * to search for word under cursor
+" Often I just want to see where else a word appears
+nnoremap * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
+
+" Save file with sudo by doing :w!!
+cmap w!! w !sudo tee % >/dev/null
