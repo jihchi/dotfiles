@@ -120,6 +120,7 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias rmorig="fd .orig -x rm"
 
 # Ctrl+U -- delete from current position to the beginning of the line
 bindkey "^u" backward-kill-line

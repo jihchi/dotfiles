@@ -47,6 +47,7 @@ syntax enable
 set termguicolors " Enable 24bit true color
 colorscheme night-owl
 set background=dark " Setting dark mode
+set mouse=nicr " Enable mouse wheel in iTerm2 + vim
 
 set relativenumber " Show relative numbers
 set number " Don't show line numbers
