@@ -91,6 +91,7 @@ plugins=(
     git-prompt
     fzf
     fasd
+    alias-finder
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -156,3 +157,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # deno
 export PATH="$HOME/.deno/bin:$PATH"
+
+cdtemp () {
+  cd $(mktemp -d)
+}
