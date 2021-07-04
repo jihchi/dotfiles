@@ -356,7 +356,6 @@ let g:lognroll#enable_insert_mode = 0
 " coc.vim
 let g:coc_global_extensions = [
   \ 'coc-rescript',
-  \ 'coc-reason',
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-git',
